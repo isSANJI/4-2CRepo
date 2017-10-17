@@ -1,0 +1,4 @@
+sceneSetups:
+- path: C:/Programming for Computer Games/GitPortable/NeilUnityRepository/4-2B/Intro/Assets/scenes/Game.unity
+  isLoaded: 1
+  isActive: 1
