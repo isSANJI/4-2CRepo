@@ -27,6 +27,7 @@ public class MusicPlayer : MonoBehaviour {
             myMusicPlayer = this;
             //this.gameObject = the gameObject attached to 
             //this script, being SoundObject
+            
             //DontDestroyOnLoad = do not destroy the gameObject
             //when loading a new scene
             GameObject.DontDestroyOnLoad(this.gameObject);
