@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LoseCollider : MonoBehaviour {
 
-    public LevelManager myLevelManager;
+    private LevelManager myLevelManager;
 
     //works when Collider is a Collider2D
     void OnCollisionEnter2D(Collision2D collision)
@@ -21,6 +21,8 @@ public class LoseCollider : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+
+        myLevelManager = GameObject.FindObjectOfType<LevelManager>();
 		
 	}
 	
