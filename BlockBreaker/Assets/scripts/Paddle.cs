@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class Paddle : MonoBehaviour {
 
+    private Ball myBall;
+
 	// Use this for initialization
 	void Start () {
+
+        myBall = GameObject.FindObjectOfType<Ball>();
 		
 	}
 	
@@ -16,7 +20,8 @@ public class Paddle : MonoBehaviour {
         float mousePosInUnits = (Input.mousePosition.x / Screen.width * 13f) - 6.5f;
 
         //restricts mousePosInUnits between -6f and 6f
-        float mousePos = Mathf.Clamp(mousePosInUnits, -6f, 6f);
+        //float mousePos = Mathf.Clamp(mousePosInUnits, -6f, 6f);
+        float mousePos = Mathf.Clamp(myBall.transform.position.x, -6f, 6f);
 
         //Vector3: saves any coordinate in 3D space
         //as x,y,z

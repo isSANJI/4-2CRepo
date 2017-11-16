@@ -10,8 +10,21 @@ public class Ball : MonoBehaviour {
 
     private bool hasStarted = false;
 
-	// Use this for initialization
-	void Start () {
+    float randomX, randomY;
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        randomX = Random.Range(0f, 0.2f);
+        randomY = Random.Range(0f, 0.2f);
+
+        Vector2 tweak = new Vector2(randomX, randomY);
+
+        //velocity = velocity + tweak
+        this.GetComponent<Rigidbody2D>().velocity += tweak;
+    }
+
+    // Use this for initialization
+    void Start () {
 
         myPaddle = GameObject.FindObjectOfType<Paddle>();
 
