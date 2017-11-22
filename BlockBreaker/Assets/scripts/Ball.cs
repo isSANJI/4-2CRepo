@@ -14,6 +14,11 @@ public class Ball : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (hasStarted)
+        {
+            this.GetComponent<AudioSource>().Play();
+        }
+
         randomX = Random.Range(0f, 0.2f);
         randomY = Random.Range(0f, 0.2f);
 

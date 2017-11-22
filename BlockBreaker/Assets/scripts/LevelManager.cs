@@ -17,9 +17,19 @@ public class LevelManager : MonoBehaviour {
         UnityEditor.EditorApplication.isPlaying = false;
     }
 
+
     public void LoadNextLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void BrickDestroyed()
+    {
+        //when all bricks are destroyed load next level
+        if (Bricks.breakableCount <= 0)
+        {
+            LoadNextLevel();
+        }
     }
 
 	

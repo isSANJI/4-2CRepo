@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Bricks : MonoBehaviour {
 
+    //available throughout all the game
+    public static int breakableCount = 0;
+
+    public AudioClip myClip;
+
     public int maxHits;
 
     private LevelManager myLevelManager;
@@ -18,12 +23,18 @@ public class Bricks : MonoBehaviour {
 
         if (numberOfHits >= maxHits)
         {
+            breakableCount--;
+            AudioSource.PlayClipAtPoint(myClip, transform.position);
             Destroy(this.gameObject);
+            myLevelManager.BrickDestroyed();
         }
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+        
+
+        
         //if isBreakable == true
         if (isBreakable )
         {
@@ -44,6 +55,13 @@ public class Bricks : MonoBehaviour {
         
         //if tag == break, isBreakable = true
         isBreakable = this.tag == ("break");
+
+        if (isBreakable) //if (isBreakable == true)
+        {
+            breakableCount++;
+        }
+
+
 		
 	}
 	
